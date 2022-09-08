@@ -8,8 +8,7 @@ end
 
 
 
-vim.api.nvim_create_user_command('GetRelativePath',function()
-	picture_process.get_relative_path()
+vim.api.nvim_create_user_command('PicStore',function() picture_process.store_pic()
 end
 	,{nargs = '*'})
 
