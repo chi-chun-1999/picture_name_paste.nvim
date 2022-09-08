@@ -1,5 +1,6 @@
 package.loaded['picture_name_paste'] = nil
 package.loaded['picture_name_paste.insert_text'] = nil
+package.loaded['picture_name_paste.picture_process'] = nil
 package.loaded['dev'] = nil
 
 

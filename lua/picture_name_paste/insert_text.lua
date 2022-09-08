@@ -6,9 +6,14 @@ end
 
 M = {}
 
+function M.set_image_path()
+	local image_path ='./pic/xxxx.png'
+	vim.g.PictureNamePaste_image_path=image_path
+end
+
 function M.filetype_text()
 	local text =nil
-	local image_path = './pic/xxxxx.png'
+	local image_path = vim.g.PictureNamePaste_image_path
 
 	if vim.bo.filetype == 'tex' then
 	local text_image_line = '\t\\includegraphics[height=5cm]{'..image_path..'}'
@@ -23,7 +28,6 @@ function M.filetype_text()
 		}
 	elseif vim.bo.filetype == 'markdown' then
 	local text_image_line = '![]('..image_path..')'
-		--print('type ----> '..vim.bo.filetype)
 		text={
 			text_image_line
 		}
