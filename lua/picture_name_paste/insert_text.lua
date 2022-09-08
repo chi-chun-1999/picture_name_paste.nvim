@@ -1,3 +1,5 @@
+local picture_process = require('picture_name_paste.picture_process')
+
 local function tablelength(T)
   local count = 0
   for _ in pairs(T) do count = count + 1 end
@@ -32,7 +34,7 @@ function M.filetype_text()
 			text_image_line
 		}
 	else
-		print('not tex')
+		return nil
 	end
 
 	return text
@@ -43,9 +45,51 @@ function M.insert_text()
 	local row = vim.api.nvim_win_get_cursor(0)[1]
 	print("current lined "..row)
 	local text=M.filetype_text()
-	--local text={'e','3'}
-	vim.api.nvim_buf_set_lines(0,row,row,false,text)
+	if text ~=nil then
+		vim.api.nvim_buf_set_lines(0,row,row,false,text)
+	end
 end
 
+function M.insert_text_from_clipboard()
+	vim.g.PictureNamePaste_Method = 'Clipboard'
+	local pic_name = picture_process.store_pic()
+	if pic_name ~= nil then
+		vim.g.PictureNamePaste_image_path = './pic/'..pic_name
+		M.insert_text()
+	end
+end
+
+function M.insert_text_from_pic_name()
+	vim.g.PictureNamePaste_Method = 'CopyFromPicName'
+	local pic_name = picture_process.store_pic()
+	if pic_name ~= nil then
+		vim.g.PictureNamePaste_image_path = './pic/'..pic_name
+		M.insert_text()
+	end
+end
+
+function M.insert_only_pic_name_from_clipboard()
+	vim.g.PictureNamePaste_Method = 'Clipboard'
+	local pic_name = picture_process.store_pic()
+	if pic_name ~= nil then
+		vim.g.PictureNamePaste_image_path = './pic/'..pic_name
+		local pos = vim.api.nvim_win_get_cursor(0)[2]
+		local line = vim.api.nvim_get_current_line()
+		local nline = line:sub(0, pos) ..vim.g.PictureNamePaste_image_path.. line:sub(pos + 1)
+		vim.api.nvim_set_current_line(nline)
+	end
+end
+
+function M.insert_only_pic_name_from_pic_name()
+	vim.g.PictureNamePaste_Method = 'CopyFromPicName'
+	local pic_name = picture_process.store_pic()
+	if pic_name ~= nil then
+		vim.g.PictureNamePaste_image_path = './pic/'..pic_name
+		local pos = vim.api.nvim_win_get_cursor(0)[2]
+		local line = vim.api.nvim_get_current_line()
+		local nline = line:sub(0, pos) ..vim.g.PictureNamePaste_image_path.. line:sub(pos + 1)
+		vim.api.nvim_set_current_line(nline)
+	end
+end
 
 return M
