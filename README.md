@@ -32,18 +32,18 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 
 考量到`markdown`與`tex`的不同的特性，在`markdown`文檔中，會將圖檔存於與當前文檔同一目錄的`pic`目下；而`tex`文檔中，則是將圖檔存於與編輯器開啟的位置的`pic`目下，所以在編輯`tex`的文檔時，編輯器開啟的位置必需與要編譯的文檔在同一個目錄下。
 
-- markdown 
+### markdown 
 
 如下圖，當編輯`./READMD.md`時，會將圖檔存於`./pic`中。
 
-![](./pic/EmvW45mD0o.png)
+![](./pic/EmvW45mD0o.png){:height="50%" width="50%"}
 
 從下圖可以發現，如果是編輯`./1d/READMD.md`時，則會將圖檔存於`1d/pic`中。
 
 ![](./pic/dYsrelA0pW.png)
 
 
-- latex
+### latex
 
 在下圖中開啟編輯器的位置為`~/test/test_vim_plugin_tex/`，並且與要編譯的文件`~/test/test_vim_plugin_tex/test.tex`在同一目錄。
 
@@ -66,7 +66,14 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 
 ![](./pic/Clipboard.gif)
 
+### `PictureNamePasteTextPicName`與`PictureNamePasteOnlyPicName`
 
+這功能如以下影片，主要根據複製圖檔的檔名(不包括副檔名)，從路徑`g:PictureNamePaste_pic_ori_path`(可自行更改，這裡預設為`/home/user/Pictures/`)，依據`g:PictureNamePaste_search_priority`(這裡預設為['svg', 'png', 'jpg', 'jpeg'])的順序，選擇將對應的圖檔移到目標資料夾，並將檔名的文字貼到編輯的文檔中，
 
+- `PictureNamePasteTextPicName`：會根據不同的`filetype`插入圖片的程式碼，與圖片檔名一同貼上在編輯的文檔中
+- `PictureNamePasteOnlyPicName`：只貼上圖片檔名到游標下。
 
+![](./pic/from_path.gif)
+
+![](./pic/from_real_path.gif)
 
