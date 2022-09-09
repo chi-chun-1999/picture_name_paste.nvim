@@ -180,6 +180,6 @@ function M.store_pic()
 end
 
 
-print(M.vim_open_path)
+---print(M.vim_open_path)
 
 return M
