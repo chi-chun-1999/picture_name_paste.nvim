@@ -129,13 +129,15 @@ function M.store_pic()
 	---- Store From Clipboard ----
 	if store_method == 'Clipboard' then
 		local pic_name = random_pic_name()
-		local pic_store_command = 'xclip -selection clipboard -t image/png -o > '..pic_store_path..pic_name..'&> /dev/null'
+		local pic_store_command = 'xclip -selection clipboard -t image/png -o &> /dev/null'..pic_store_path..'&> /dev/null'
+		local execute_output = os.execute(pic_store_command)
 		if os.execute(pic_store_command)/256 == 1 then
 			local remove_command = 'rm '..pic_store_path..pic_name
 			os.execute(remove_command)
 			vim.api.nvim_err_writeln("Clipboard is not pic")
 			return nil
 		else
+			local pic_store_command = 'xclip -selection clipboard -t image/png -o > '..pic_store_path..pic_name
 			return_file_name = pic_name
 			return return_file_name
 		end
