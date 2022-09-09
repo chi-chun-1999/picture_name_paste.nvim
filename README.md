@@ -22,6 +22,12 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 
 必需在`.vimrc`的目錄下新增`lua require('picture_name_paste')`，才能使用本套件。
 
+```vimrc=
+lua require('picture_name_paste')
+
+let g:PictureNamePaste_pic_ori_path='/home/user/Pictures'
+let g:PictureNamePaste_search_priority=['svg', 'png', 'jpg', 'jpeg']
+```
 
 ## Requirement
 
@@ -40,18 +46,18 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 
 從下圖可以發現，如果是編輯`./1d/READMD.md`時，則會將圖檔存於`1d/pic`中。
 
-![](./pic/dYsrelA0pW.png)
+<img src="./pic/dYsrelA0pW.png" width="50%" height="50%">
 
 
 ### latex
 
 在下圖中開啟編輯器的位置為`~/test/test_vim_plugin_tex/`，並且與要編譯的文件`~/test/test_vim_plugin_tex/test.tex`在同一目錄。
 
-![](./pic/BUy9CxJuPl.png)
+<img src="./pic/BUy9CxJuPl.png" width="50%" height="50%">
 
 下圖中這裡新增`./chapter/chapter1.tex`的章節在`./chapter1`的目錄下，考慮latex在編輯時，是根據編輯文件的相對路徑尋找對應的圖檔，所以在`./chapter/chapter1.tex`的文檔中，貼上的文字為`./pic/g365.eps`
 
-![](./pic/BR3O1Gufnk.png)
+<img src="./pic/BR3O1Gufnk.png" width="50%" height="50%">
 
 
 ## 相關功能
