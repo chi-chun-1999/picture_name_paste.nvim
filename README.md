@@ -36,7 +36,7 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 
 如下圖，當編輯`./READMD.md`時，會將圖檔存於`./pic`中。
 
-![](./pic/EmvW45mD0o.png){:height="50%" width="50%"}
+<img src="./pic/EmvW45mD0o.png" width="50%" height="50%">
 
 從下圖可以發現，如果是編輯`./1d/READMD.md`時，則會將圖檔存於`1d/pic`中。
 
