@@ -36,22 +36,22 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 
 如下圖，當編輯`./READMD.md`時，會將圖檔存於`./pic`中。
 
-![](./pic/jUr6Sxvktz.png)
+![](./pic/EmvW45mD0o.png)
 
 從下圖可以發現，如果是編輯`./1d/READMD.md`時，則會將圖檔存於`1d/pic`中。
 
-![](./pic/dufW358GQH.png)
+![](./pic/dYsrelA0pW.png)
 
 
 - latex
 
 在下圖中開啟編輯器的位置為`~/test/test_vim_plugin_tex/`，並且與要編譯的文件`~/test/test_vim_plugin_tex/test.tex`在同一目錄。
 
-![](./pic/cvebqjXD7p.png)
+![](./pic/BUy9CxJuPl.png)
 
 下圖中這裡新增`./chapter/chapter1.tex`的章節在`./chapter1`的目錄下，考慮latex在編輯時，是根據編輯文件的相對路徑尋找對應的圖檔，所以在`./chapter/chapter1.tex`的文檔中，貼上的文字為`./pic/g365.eps`
 
-![](./pic/U1DD3zdhPL.png)
+![](./pic/BR3O1Gufnk.png)
 
 
 ## 相關功能
@@ -64,9 +64,7 @@ Plug 'chi-chun-1999/picture_name_paste.nvim'
 - `PictureNamePasteOnlyClipboard`：只貼上圖片檔名到游標下。
 
 
-
-
-
+![](./pic/Clipboard.gif)
 
 
 
